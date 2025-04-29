@@ -1,0 +1,36 @@
+pipeline {
+  agent any
+  environment {
+    REGISTRY = "pavithran-c"
+    IMAGE_TAG = "${env.BUILD_NUMBER}"
+  }
+  stages {
+    stage('Build') {
+      steps {
+        sh 'docker build -t $REGISTRY/frontend:$IMAGE_TAG ./project'
+        sh 'docker build -t $REGISTRY/user:$IMAGE_TAG ./Microservice\\ Backend\\Login'
+        sh 'docker build -t $REGISTRY/vehicle:$IMAGE_TAG ./Microservice\\ Backend\\Vehicle'
+        sh 'docker build -t $REGISTRY/appointment:$IMAGE_TAG ./Microservice\\ Backend\\Appointment'
+      }
+    }
+    stage('Push') {
+      steps {
+        withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+          sh 'echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin'
+          sh 'docker push $REGISTRY/frontend:$IMAGE_TAG'
+          sh 'docker push $REGISTRY/user:$IMAGE_TAG'
+          sh 'docker push $REGISTRY/vehicle:$IMAGE_TAG'
+          sh 'docker push $REGISTRY/appointment:$IMAGE_TAG'
+        }
+      }
+    }
+    stage('Deploy') {
+      steps {
+        sh 'helm upgrade --install frontend deployment/helm/frontend --set image.repository=$REGISTRY/frontend --set image.tag=$IMAGE_TAG'
+        sh 'helm upgrade --install user deployment/helm/user --set image.repository=$REGISTRY/user --set image.tag=$IMAGE_TAG'
+        sh 'helm upgrade --install vehicle deployment/helm/vehicle --set image.repository=$REGISTRY/vehicle --set image.tag=$IMAGE_TAG'
+        sh 'helm upgrade --install appointment deployment/helm/appointment --set image.repository=$REGISTRY/appointment --set image.tag=$IMAGE_TAG'
+      }
+    }
+  }
+}
