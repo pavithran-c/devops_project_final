@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: pavithran-c/vehicle
+  repository: pavithranc/vehicle
   tag: "latest"
   pullPolicy: IfNotPresent
 

@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: pavithran-c/user
+  repository: pavithranc/user
   tag: "latest"
   pullPolicy: IfNotPresent
 

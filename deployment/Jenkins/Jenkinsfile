@@ -1,7 +1,7 @@
 pipeline {
   agent any
   environment {
-    REGISTRY = "pavithran-c"
+    REGISTRY = "pavithranc"
     IMAGE_TAG = "${env.BUILD_NUMBER}"
   }
   stages {

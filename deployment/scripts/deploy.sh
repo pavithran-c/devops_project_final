@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-REGISTRY=pavithran-c
+REGISTRY=pavithranc
 TAG=${1:-latest}
 
 echo "Pushing images to Docker registry..."

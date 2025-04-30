@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: pavithran-c/appointment
+  repository: pavithranc/appointment
   tag: "latest"
   pullPolicy: IfNotPresent
 
