@@ -3,5 +3,5 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
-EXPOSE 5001   # Change this if your service uses a different port
+EXPOSE 5001  
 CMD ["npm", "start"]
