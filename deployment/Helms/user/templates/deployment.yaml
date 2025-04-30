@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "frontend.fullname" . }}
+  name: {{ include "login.fullname" . }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ include "frontend.fullname" . }}
+      app: {{ include "login.fullname" . }}
   template:
     metadata:
       labels:
-        app: {{ include "frontend.fullname" . }}
+        app: {{ include "login.fullname" . }}
     spec:
       containers:
-        - name: frontend
+        - name: login
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           ports:
             - containerPort: 5001

@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "frontend.fullname" . }}
+  name: {{ include "login.fullname" . }}
 spec:
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.service.port }}
       targetPort: 5001
   selector:
-    app: {{ include "frontend.fullname" . }}
+    app: {{ include "login.fullname" . }}

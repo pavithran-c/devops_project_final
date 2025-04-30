@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "frontend.fullname" . }}
+  name: {{ include "vehicle.fullname" . }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ include "frontend.fullname" . }}
+      app: {{ include "vehicle.fullname" . }}
   template:
     metadata:
       labels:
-        app: {{ include "frontend.fullname" . }}
+        app: {{ include "vehicle.fullname" . }}
     spec:
       containers:
-        - name: frontend
+        - name: vehicle
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           ports:
             - containerPort: 5002
