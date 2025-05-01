@@ -11,13 +11,11 @@ router.get("/me", authMiddleware, async (req, res) => {
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
-    console.log(user.createdAt);
     res.json({
       user: {
         id: user._id,
         username: user.username,
         email: user.email,
-        picture: user.picture,
         authType: user.authType,
         createdAt: user.createdAt || new Date(), // Fallback to current date if missing
       },
@@ -61,7 +59,6 @@ router.put("/me", authMiddleware, async (req, res) => {
         id: user._id,
         username: user.username,
         email: user.email,
-        picture: user.picture || null,
         authType: user.authType,
         createdAt: user.createdAt || new Date(),
       },
