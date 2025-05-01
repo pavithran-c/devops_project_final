@@ -5,7 +5,7 @@ import { AuthContext } from "../context/AuthContext";
 import axios from "axios";
 import "./Login.css";
 
-const API_URL = "http://localhost:5001/api";
+const API_URL = "http://10.105.227.237:5001/api";
 
 const LoginSignup = () => {
   const [isActive, setIsActive] = useState(false);
