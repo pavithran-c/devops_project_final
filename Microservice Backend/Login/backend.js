@@ -7,7 +7,7 @@ const authRoutes = require('./authRoutes');
 const userRoutes = require('./user');
 const app = express();
 
-const FRONTEND_URL = '*'; 
+const FRONTEND_URL = 'http://192.168.67.2:3000'; 
 app.use(cors({ origin: FRONTEND_URL, credentials: true }));
 app.use(express.json());
 app.use(cookieParser());
