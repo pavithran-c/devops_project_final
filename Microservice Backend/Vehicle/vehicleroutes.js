@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Vehicle = require('./Vehicle');
-const authMiddleware = require('../Login/authMiddleware');
+const authMiddleware = require('./authMiddleware');
 
 // Add a vehicle (protected route)
 router.post('/', authMiddleware, async (req, res) => {
