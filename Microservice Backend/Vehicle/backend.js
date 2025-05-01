@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const vehicleRoutes = require('./vehicleroutes');
-const authMiddleware = require('../Login/authMiddleware');
+const authMiddleware = require('./authMiddleware');
 const app = express();
 
 const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:5173';
