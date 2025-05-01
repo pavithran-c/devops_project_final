@@ -24,7 +24,7 @@ import {
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 // Use Appointment microservice endpoint
-const APPOINTMENT_API_URL = "http://localhost:5003/api";
+const APPOINTMENT_API_URL = "http://10.98.96.66:5003/api";
 
 const LiveTrack = () => {
   const { user } = useContext(AuthContext);

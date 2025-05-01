@@ -29,9 +29,9 @@ import "./Profile.css";
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 // Microservice endpoints
-const USER_API_URL = "http://localhost:5001/api";
-const VEHICLE_API_URL = "http://localhost:5002/api";
-const APPOINTMENT_API_URL = "http://localhost:5003/api";
+const USER_API_URL = "http://10.105.227.237:5001/api";
+const VEHICLE_API_URL = "http://10.101.171.200:5002/api";
+const APPOINTMENT_API_URL = "http://10.98.96.66:5003/api";
 
 const Profile = () => {
   const { user, logout } = useContext(AuthContext);
