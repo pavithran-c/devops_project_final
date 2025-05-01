@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Appointment = require("./Appointment");
 const Vehicle = require("./Vehicle");
-const auth = require("../Login/authMiddleware");
+const auth = require("./authMiddleware");
 const authMiddleware = require("./authMiddleware");
 
 // Maximum appointments per day
